@@ -37,27 +37,31 @@ export function CreateGlowForm() {
   const selectedColorObj = COLORS.find(c => c.id === color) || COLORS[0];
 
   return (
-    <div className="mb-8 overflow-hidden rounded-xl border border-border bg-card shadow-lg shadow-black/10">
-      <div className="border-b border-border p-4">
-        <h2 className="text-lg font-semibold flex items-center gap-2">
-          <span className="text-accent">✦</span> Post a Glow
-        </h2>
-      </div>
-
-      <form onSubmit={handleSubmit}>
-        <div className={`p-6 transition-colors duration-300 ${selectedColorObj.bgClass}`}>
-          <textarea
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-            placeholder="What's sticking in your world today?"
-            maxLength={280}
-            className="w-full resize-none bg-transparent text-lg placeholder:text-black/50 focus:outline-none min-h-[120px]"
-            disabled={isSubmitting}
-          />
+    <div className="mb-8 relative z-10 group transition-all duration-300 focus-within:-translate-y-1 focus-within:shadow-2xl">
+      {/* Glow aura behind the form */}
+      <div className="absolute -inset-1 bg-gradient-to-r from-accent via-purple-500 to-accent rounded-2xl blur-md opacity-20 group-focus-within:opacity-50 transition duration-500"></div>
+      
+      <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#141416] shadow-xl">
+        <div className="border-b border-white/5 p-4 flex items-center justify-between">
+          <h2 className="text-sm font-bold flex items-center gap-2 text-white/90">
+            What's sticking in your world today? <span className="text-accent text-lg">✦</span>
+          </h2>
         </div>
-        
-        <div className="flex flex-wrap items-center justify-between gap-4 p-4 bg-card border-t border-border">
-          <div className="flex flex-wrap items-center gap-2">
+
+        <form onSubmit={handleSubmit}>
+          <div className={`p-6 transition-colors duration-300 ${selectedColorObj.bgClass} paper-texture`}>
+            <textarea
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+              placeholder="Write your glow..."
+              maxLength={280}
+              className="w-full resize-none bg-transparent text-2xl font-handwriting leading-relaxed text-black/80 placeholder:text-black/40 focus:outline-none min-h-[120px]"
+              disabled={isSubmitting}
+            />
+          </div>
+          
+          <div className="flex flex-wrap items-center justify-between gap-4 p-4 bg-[#0a0a0c] border-t border-white/5">
+            <div className="flex flex-wrap items-center gap-3">
             {COLORS.map((c) => (
               <button
                 key={c.id}
@@ -78,9 +82,9 @@ export function CreateGlowForm() {
             <button
               type="submit"
               disabled={isSubmitting || content.trim().length === 0}
-              className="rounded-full bg-accent px-6 py-2 text-sm font-bold text-background transition-all hover:bg-accent-hover hover:scale-105 disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed"
+              className="rounded-full bg-accent text-black px-6 py-2 text-sm font-bold shadow-lg box-glow transition-all hover:bg-accent-hover hover:scale-105 active:scale-95 disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed disabled:shadow-none"
             >
-              {isSubmitting ? 'Sticking...' : 'Glow'}
+              CREATE GLOW +
             </button>
           </div>
         </div>
@@ -90,6 +94,7 @@ export function CreateGlowForm() {
           {error}
         </div>
       )}
+      </div>
     </div>
   );
 }

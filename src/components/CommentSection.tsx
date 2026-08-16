@@ -6,9 +6,10 @@ import { addComment, getComments } from '@/app/actions/interactions';
 interface CommentSectionProps {
   glowId: string;
   initialCount: number;
+  leftAction?: React.ReactNode;
 }
 
-export function CommentSection({ glowId, initialCount }: CommentSectionProps) {
+export function CommentSection({ glowId, initialCount, leftAction }: CommentSectionProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [comments, setComments] = useState<any[]>([]);
   const [newComment, setNewComment] = useState('');
@@ -56,13 +57,16 @@ export function CommentSection({ glowId, initialCount }: CommentSectionProps) {
 
   return (
     <div className="w-full">
-      <button 
-        onClick={toggleComments}
-        className="flex items-center gap-1.5 text-black/60 hover:text-black transition-colors"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        <span className="text-sm font-medium">{initialCount > 0 ? initialCount : 'Comment'}</span>
-      </button>
+      <div className="flex items-center gap-6">
+        {leftAction}
+        <button 
+          onClick={toggleComments}
+          className="flex items-center gap-1.5 text-black/60 hover:text-black transition-colors"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <span className="text-sm font-medium">{initialCount > 0 ? initialCount : 'Comment'}</span>
+        </button>
+      </div>
 
       {isOpen && (
         <div className="mt-4 pt-4 border-t border-black/10 space-y-4">
@@ -90,13 +94,13 @@ export function CommentSection({ glowId, initialCount }: CommentSectionProps) {
               value={newComment}
               onChange={(e) => setNewComment(e.target.value)}
               placeholder="Add a comment..."
-              className="flex-1 bg-white/50 border border-black/10 rounded-full px-4 py-1.5 text-sm focus:outline-none focus:ring-1 focus:ring-black/20"
+              className="flex-1 bg-white/50 border border-black/10 rounded-full px-3 py-1.5 text-sm focus:outline-none focus:ring-1 focus:ring-black/20 min-w-0"
               disabled={isPending}
             />
             <button
               type="submit"
               disabled={!newComment.trim() || isPending}
-              className="bg-black text-white px-4 py-1.5 rounded-full text-sm font-medium disabled:opacity-50"
+              className="bg-black text-white px-3 py-1.5 rounded-full text-sm font-medium disabled:opacity-50 flex-shrink-0"
             >
               Post
             </button>

@@ -25,26 +25,35 @@ export default async function FeedPage() {
   const glows = await getGlows();
 
   return (
-    <div className="min-h-screen pb-20">
-      {/* Header */}
-      <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md shadow-sm">
-        <div className="mx-auto flex h-16 max-w-2xl items-center justify-between px-4">
-          <h1 className="text-xl font-bold flex items-center gap-2">
-            <span className="text-accent text-2xl">✦</span> 
-            <span className="tracking-tight">Glow</span>
-          </h1>
-          <div className="flex items-center gap-4">
-            <span className="text-sm font-medium text-foreground">
-              {profile?.username || user.email?.split('@')[0]}
-            </span>
-            <LogoutButton />
+    <div className="min-h-screen relative flex flex-col">
+      {/* Mobile-style Header (Responsive) */}
+      <header className="sticky top-0 z-50 bg-black/60 backdrop-blur-xl border-b border-white/5 pt-4 pb-3 px-4">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-accent to-purple-600 p-[2px] shadow-lg box-glow">
+              <div className="w-full h-full rounded-full bg-black flex items-center justify-center font-bold text-sm">
+                {profile?.username?.charAt(0).toUpperCase() || 'U'}
+              </div>
+            </div>
+            <div>
+              <h2 className="text-sm font-bold leading-tight">{profile?.username || user.email?.split('@')[0]} <span className="text-accent text-xs">✦</span></h2>
+              <p className="text-xs text-white/50">Building GLOOOOED 🚀</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-3">
+             <button className="text-white/70 hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+             </button>
+             <LogoutButton />
           </div>
         </div>
       </header>
 
-      <main className="mx-auto max-w-2xl px-4 py-8">
+      <main className="flex-1 px-4 py-6 w-full max-w-5xl mx-auto">
         {/* Create Glow Form */}
-        <CreateGlowForm />
+        <div className="max-w-2xl mx-auto">
+          <CreateGlowForm />
+        </div>
 
         {/* Feed */}
         <div className="mt-8 space-y-6">
@@ -61,7 +70,7 @@ export default async function FeedPage() {
               </p>
             </div>
           ) : (
-            <div className="grid gap-6 sm:grid-cols-2">
+            <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-start">
               {glows.map((glow) => (
                 <GlowCard key={glow.id} glow={glow} />
               ))}

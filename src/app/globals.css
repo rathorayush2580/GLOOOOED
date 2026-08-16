@@ -7,12 +7,18 @@
   --card-hover: #27272a;
   --border: #27272a;
   --muted: #a1a1aa;
-  --accent: #f59e0b;
-  --accent-hover: #d97706;
+  
+  /* GLOOOOED Theme Colors */
+  --accent: #facc15; /* Bright Gold/Yellow */
+  --accent-hover: #eab308;
+  --accent-glow: rgba(250, 204, 21, 0.4);
   --danger: #ef4444;
   --success: #22c55e;
+  
+  /* Deep mobile background */
+  --mobile-bg: radial-gradient(circle at top right, #1a0b2e 0%, #09090b 40%, #000000 100%);
 
-  /* Sticky note colors */
+  /* Sticky note colors (more authentic paper feel) */
   --note-yellow: #fef08a;
   --note-pink: #fda4af;
   --note-blue: #93c5fd;
@@ -29,6 +35,7 @@
   --color-muted: var(--muted);
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
+  --color-accent-glow: var(--accent-glow);
   --color-danger: var(--danger);
   --color-success: var(--success);
   --color-note-yellow: var(--note-yellow);
@@ -36,14 +43,41 @@
   --color-note-blue: var(--note-blue);
   --color-note-green: var(--note-green);
   --color-note-purple: var(--note-purple);
+  
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-handwriting: var(--font-caveat);
+  
+  --background-image-mobile-bg: var(--mobile-bg);
 }
 
 body {
-  background: var(--background);
+  background: var(--mobile-bg);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* Custom utilities */
+.text-glow {
+  text-shadow: 0 0 10px var(--accent-glow);
+}
+
+.box-glow {
+  box-shadow: 0 0 15px var(--accent-glow);
+}
+
+/* Paper texture for sticky notes */
+.paper-texture {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+/* Hide scrollbar for neatness on mobile */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
 }
 
 /* Smooth transitions for interactive elements */

@@ -52,82 +52,67 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center px-4">
+    <div className="flex min-h-screen flex-col items-center justify-center px-4 relative overflow-hidden">
+      {/* Background glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
+
       {/* Brand */}
-      <div className="mb-8 text-center">
-        <h1 className="text-4xl font-bold tracking-tight">
+      <div className="mb-10 text-center relative z-10">
+        <h1 className="text-4xl font-bold tracking-tight text-white">
           <span className="text-accent">✦</span> Glow
         </h1>
-        <p className="mt-2 text-muted text-sm">
-          Share what's sticking in your world
+        <p className="mt-2 text-white/60 text-sm font-medium tracking-wide uppercase">
+          Memories that stick forever.
         </p>
       </div>
 
       {/* Auth Card */}
-      <div className="w-full max-w-sm rounded-2xl border border-border bg-card p-8 shadow-xl shadow-black/20">
-        <h2 className="mb-6 text-xl font-semibold text-center">
-          {isSignUp ? 'Create your account' : 'Welcome back'}
+      <div className="w-full max-w-sm rounded-3xl border border-white/10 bg-[#141416]/80 backdrop-blur-xl p-8 shadow-2xl relative z-10">
+        <h2 className="mb-8 text-xl font-bold text-center text-white/90">
+          {isSignUp ? "Let's get you glowing!" : 'Welcome back'} <span className="text-accent">✦</span>
         </h2>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-5">
           {isSignUp && (
             <div>
-              <label
-                htmlFor="username"
-                className="mb-1.5 block text-sm font-medium text-muted"
-              >
-                Username
-              </label>
               <input
                 id="username"
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                placeholder="your display name"
-                className="w-full rounded-lg border border-border bg-background px-3.5 py-2.5 text-sm text-foreground placeholder:text-muted/50 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                placeholder="Choose an Aura Name (Username)"
+                className="w-full rounded-xl border border-white/5 bg-[#0a0a0c] px-4 py-3.5 text-sm text-foreground placeholder:text-white/30 focus:border-accent/50 focus:outline-none focus:ring-1 focus:ring-accent/50 transition-colors"
               />
             </div>
           )}
 
           <div>
-            <label
-              htmlFor="email"
-              className="mb-1.5 block text-sm font-medium text-muted"
-            >
-              Email
-            </label>
             <input
               id="email"
               type="email"
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="you@example.com"
-              className="w-full rounded-lg border border-border bg-background px-3.5 py-2.5 text-sm text-foreground placeholder:text-muted/50 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+              placeholder="Your Email"
+              className="w-full rounded-xl border border-white/5 bg-[#0a0a0c] px-4 py-3.5 text-sm text-foreground placeholder:text-white/30 focus:border-accent/50 focus:outline-none focus:ring-1 focus:ring-accent/50 transition-colors"
             />
           </div>
 
           <div>
-            <label
-              htmlFor="password"
-              className="mb-1.5 block text-sm font-medium text-muted"
-            >
-              Password
-            </label>
             <input
               id="password"
               type="password"
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="••••••••"
+              placeholder="Secret Password (min 6 chars)"
               minLength={6}
-              className="w-full rounded-lg border border-border bg-background px-3.5 py-2.5 text-sm text-foreground placeholder:text-muted/50 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+              className="w-full rounded-xl border border-white/5 bg-[#0a0a0c] px-4 py-3.5 text-sm text-foreground placeholder:text-white/30 focus:border-accent/50 focus:outline-none focus:ring-1 focus:ring-accent/50 transition-colors"
             />
           </div>
 
           {error && (
-            <div className="rounded-lg bg-danger/10 px-3.5 py-2.5 text-sm text-danger">
+            <div className="rounded-xl bg-danger/10 px-4 py-3 text-sm text-danger border border-danger/20 text-center">
               {error}
             </div>
           )}
@@ -135,13 +120,13 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-lg bg-accent px-4 py-2.5 text-sm font-semibold text-background hover:bg-accent-hover disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full rounded-full bg-accent px-4 py-3.5 text-sm font-bold text-black shadow-lg box-glow hover:bg-accent-hover hover:scale-105 active:scale-95 disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed disabled:shadow-none transition-all mt-4"
           >
             {loading
-              ? 'Please wait...'
+              ? 'GLOWING IN...'
               : isSignUp
-                ? 'Create Account'
-                : 'Sign In'}
+                ? 'CREATE AURA'
+                : 'STICK IN'}
           </button>
         </form>
 

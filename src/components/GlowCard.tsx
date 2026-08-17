@@ -101,12 +101,12 @@ export function GlowCard({ glow }: { glow: Glow }) {
       <div className="mt-6 text-black/60 border-t border-black/10 pt-3">
         <CommentSection 
           glowId={glow.id} 
-          initialCount={glow.commentsCount} 
+          initialCount={glow.commentsCount || 0} 
           leftAction={
             <LikeButton 
               glowId={glow.id} 
-              initialLiked={glow.isLikedByMe} 
-              initialCount={glow.likesCount} 
+              initialLiked={glow.isLikedByMe || false} 
+              initialCount={glow.likesCount || 0} 
             />
           }
         />

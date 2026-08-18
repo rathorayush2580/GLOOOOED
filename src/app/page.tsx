@@ -38,8 +38,11 @@ export default async function FeedPage() {
               <span className="font-bold text-[#1a0800] text-lg font-sans">G</span>
               <div className="absolute top-[3px] right-[12px] w-[7px] h-[7px] bg-red-500 rounded-full shadow-[1px_1px_2px_rgba(0,0,0,0.5)]" />
             </div>
-            <h1 className="text-xl font-black tracking-[0.15em] text-white select-none">
-              GLOOOOED
+            <h1 className="text-2xl font-bold tracking-wide select-none" style={{
+              color: '#ffffff',
+              textShadow: '0 0 10px rgba(216, 180, 254, 0.8), 0 0 20px rgba(168, 85, 247, 0.6), 0 0 30px rgba(147, 51, 234, 0.4)'
+            }}>
+              Glooooed
             </h1>
           </div>
 

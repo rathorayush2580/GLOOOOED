@@ -66,8 +66,11 @@ export default function LoginPage() {
             <span className="font-bold text-[#1a0800] text-2xl font-sans">G</span>
             <div className="absolute top-[4px] right-[17px] w-[10px] h-[10px] bg-red-500 rounded-full shadow-[1px_1px_3px_rgba(0,0,0,0.5)]" />
           </div>
-          <h1 className="text-4xl font-black tracking-[0.15em] text-white select-none">
-            GLOOOOED
+          <h1 className="text-5xl font-bold tracking-wide select-none" style={{
+            color: '#ffffff',
+            textShadow: '0 0 15px rgba(216, 180, 254, 0.9), 0 0 30px rgba(168, 85, 247, 0.7), 0 0 45px rgba(147, 51, 234, 0.5)'
+          }}>
+            Glooooed
           </h1>
         </div>
         <p className="mt-2 text-white/60 text-sm font-medium tracking-wide uppercase">

@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #09090b;
+  --background: #07010f; /* Very deep purple/black */
   --foreground: #fafafa;
-  --card: #18181b;
-  --card-hover: #27272a;
-  --border: #27272a;
+  --card: #130324;
+  --card-hover: #1f063b;
+  --border: #2e0954;
   --muted: #a1a1aa;
   
   /* GLOOOOED Theme Colors */
@@ -15,8 +15,8 @@
   --danger: #ef4444;
   --success: #22c55e;
   
-  /* Deep mobile background */
-  --mobile-bg: radial-gradient(circle at top right, #1a0b2e 0%, #09090b 40%, #000000 100%);
+  /* Deep BTS neon purple background glow */
+  --mobile-bg: radial-gradient(circle at 50% -10%, #7e22ce 0%, #3b0764 25%, #07010f 70%, #000000 100%);
 
   /* Sticky note colors (more authentic paper feel) */
   --note-yellow: #fef08a;

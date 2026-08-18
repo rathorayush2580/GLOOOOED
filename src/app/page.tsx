@@ -28,22 +28,37 @@ export default async function FeedPage() {
     <div className="min-h-screen relative flex flex-col">
       {/* Mobile-style Header (Responsive) */}
       <header className="sticky top-0 z-50 bg-black/60 backdrop-blur-xl border-b border-white/5 pt-4 pb-3 px-4">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between max-w-5xl mx-auto">
+          {/* Brand Identity - Left Side */}
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-accent to-purple-600 p-[2px] shadow-lg box-glow">
-              <div className="w-full h-full rounded-full bg-black flex items-center justify-center font-bold text-sm">
-                {profile?.username?.charAt(0).toUpperCase() || 'U'}
-              </div>
+            <div 
+              className="relative flex items-center justify-center bg-[#fef08a] border border-[#ca8a04] shadow-sm rounded-sm"
+              style={{ width: '32px', height: '32px', transform: 'rotate(-5deg)' }}
+            >
+              <span className="font-bold text-[#1a0800] text-lg font-sans">G</span>
+              <div className="absolute top-[3px] right-[12px] w-[7px] h-[7px] bg-red-500 rounded-full shadow-[1px_1px_2px_rgba(0,0,0,0.5)]" />
             </div>
-            <div>
-              <h2 className="text-sm font-bold leading-tight">{profile?.username || user.email?.split('@')[0]} <span className="text-accent text-xs">✦</span></h2>
-              <p className="text-xs text-white/50">Building GLOOOOED 🚀</p>
-            </div>
+            <h1 className="text-xl font-black tracking-[0.15em] text-white select-none">
+              GLOOOOED
+            </h1>
           </div>
-          <div className="flex items-center gap-3">
-             <button className="text-white/70 hover:text-white">
+
+          {/* User & Actions - Right Side */}
+          <div className="flex items-center gap-4">
+             <button className="text-white/70 hover:text-white hidden sm:block">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
              </button>
+             
+             {/* Profile Capsule */}
+             <div className="flex items-center gap-2 bg-white/5 rounded-full pl-1.5 pr-3 py-1.5 border border-white/10">
+               <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-accent to-purple-600 p-[2px] shadow-sm">
+                 <div className="w-full h-full rounded-full bg-black flex items-center justify-center font-bold text-[11px]">
+                   {profile?.username?.charAt(0).toUpperCase() || 'U'}
+                 </div>
+               </div>
+               <span className="text-sm font-semibold max-w-[80px] sm:max-w-[120px] truncate">{profile?.username || user.email?.split('@')[0]}</span>
+             </div>
+
              <LogoutButton />
           </div>
         </div>

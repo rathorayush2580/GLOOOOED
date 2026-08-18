@@ -53,8 +53,8 @@ export default function LoginPage() {
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center px-4 relative overflow-hidden">
-      {/* Background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
+      {/* Background glow (BTS Neon Purple) */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-600/20 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
 
       {/* Brand */}
       <div className="mb-10 text-center relative z-10">
@@ -67,7 +67,7 @@ export default function LoginPage() {
       </div>
 
       {/* Auth Card */}
-      <div className="w-full max-w-sm rounded-3xl border border-white/10 bg-[#141416]/80 backdrop-blur-xl p-8 shadow-2xl relative z-10">
+      <div className="w-full max-w-sm rounded-3xl border border-purple-500/20 bg-[#0f031a]/80 backdrop-blur-xl p-8 shadow-[0_0_40px_rgba(147,51,234,0.15)] relative z-10">
         <h2 className="mb-8 text-xl font-bold text-center text-white/90">
           {isSignUp ? "Let's get you glowing!" : 'Welcome back'} <span className="text-accent">✦</span>
         </h2>

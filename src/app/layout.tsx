@@ -19,8 +19,8 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
-  title: "Glow — Share What's On Your Mind",
-  description: "A sticky-note style social feed. Post short, colorful Glows and engage with your community.",
+  title: "Glooooed",
+  description: "Memories that stick forever.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

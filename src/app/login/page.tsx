@@ -56,11 +56,20 @@ export default function LoginPage() {
       {/* Background glow (BTS Neon Purple) */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-600/20 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
 
-      {/* Brand */}
-      <div className="mb-10 text-center relative z-10">
-        <h1 className="text-4xl font-bold tracking-tight text-white">
-          <span className="text-accent">✦</span> Glow
-        </h1>
+      {/* Brand Identity - Centered */}
+      <div className="mb-10 flex flex-col items-center justify-center relative z-10">
+        <div className="flex items-center gap-4 mb-2">
+          <div 
+            className="relative flex items-center justify-center bg-[#fef08a] border border-[#ca8a04] shadow-md rounded-sm"
+            style={{ width: '44px', height: '44px', transform: 'rotate(-5deg)' }}
+          >
+            <span className="font-bold text-[#1a0800] text-2xl font-sans">G</span>
+            <div className="absolute top-[4px] right-[17px] w-[10px] h-[10px] bg-red-500 rounded-full shadow-[1px_1px_3px_rgba(0,0,0,0.5)]" />
+          </div>
+          <h1 className="text-4xl font-black tracking-[0.15em] text-white select-none">
+            GLOOOOED
+          </h1>
+        </div>
         <p className="mt-2 text-white/60 text-sm font-medium tracking-wide uppercase">
           Memories that stick forever.
         </p>
